@@ -107,8 +107,8 @@ Items:
       <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-stone-200 space-y-4 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between border-b border-stone-100 pb-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-amber-900 text-amber-50 flex items-center justify-center font-bold text-xs">
-              <Upload className="w-4 h-4 text-amber-200" />
+            <div className="w-8 h-8 rounded-lg bg-brand-900 text-brand-50 flex items-center justify-center font-bold text-xs">
+              <Upload className="w-4 h-4 text-brand-200" />
             </div>
             <div>
               <h3 className="text-base font-serif font-semibold text-stone-900">
@@ -139,7 +139,7 @@ Items:
                   setPlatform(sample.platform);
                   setParsedResults([]);
                 }}
-                className="text-xs px-3 py-1.5 bg-stone-100 hover:bg-amber-50 border border-stone-200 hover:border-amber-300 rounded-lg text-stone-700 transition-colors text-left"
+                className="text-xs px-3 py-1.5 bg-stone-100 hover:bg-brand-50 border border-stone-200 hover:border-brand-300 rounded-lg text-stone-700 transition-colors text-left"
               >
                 📋 {sample.title}
               </button>
@@ -172,7 +172,7 @@ Items:
             value={orderText}
             onChange={(e) => setOrderText(e.target.value)}
             placeholder="Paste raw text here... e.g. '1x Aashirvaad Atta 5kg, 2x Amul Milk 500ml, 1x Vim Gel 750ml...'"
-            className="w-full p-3 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-1 focus:ring-amber-800 font-mono"
+            className="w-full p-3 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-1 focus:ring-brand-800 font-mono"
           />
         </div>
 
@@ -181,16 +181,16 @@ Items:
             type="button"
             disabled={!orderText.trim() || isLoading}
             onClick={handleParseOrder}
-            className="px-4 py-2 bg-stone-900 hover:bg-stone-800 disabled:opacity-40 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
+            className="px-4 py-2 bg-brand-800 hover:bg-brand-700 disabled:opacity-40 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
           >
             {isLoading ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin text-amber-300" />
+                <RefreshCw className="w-4 h-4 animate-spin text-brand-300" />
                 <span>Alfred is cataloguing order...</span>
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 text-amber-300" />
+                <Sparkles className="w-4 h-4 text-brand-300" />
                 <span>Parse Provisions</span>
               </>
             )}
