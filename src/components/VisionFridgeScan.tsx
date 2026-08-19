@@ -132,10 +132,10 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
   return (
     <div className="max-w-4xl mx-auto space-y-6 pb-12">
       {/* Header */}
-      <div className="bg-[#faf8f5] border border-amber-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-[#f5f9fc] border border-brand-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-900 text-amber-50 flex items-center justify-center font-serif text-lg font-bold shadow-xs">
-            <Scan className="w-5 h-5 text-amber-200" />
+          <div className="w-10 h-10 rounded-xl bg-brand-900 text-brand-50 flex items-center justify-center font-serif text-lg font-bold shadow-xs">
+            <Scan className="w-5 h-5 text-brand-200" />
           </div>
           <div>
             <h2 className="text-xl font-serif font-semibold text-stone-900">
@@ -151,7 +151,7 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
       {/* Preset Quick Tests */}
       <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-2xs space-y-3">
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500">
-          <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+          <Sparkles className="w-3.5 h-3.5 text-brand-700" />
           <span>Quick Exploration Presets (Try Instant Scan):</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -166,10 +166,10 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
                 setDetectedItems([]);
                 setAnalysisSummary(null);
               }}
-              className="text-left p-3.5 rounded-xl border border-stone-200 hover:border-amber-400 hover:bg-amber-50/40 transition-all flex items-start gap-3 cursor-pointer group"
+              className="text-left p-3.5 rounded-xl border border-stone-200 hover:border-brand-400 hover:bg-brand-50/40 transition-all flex items-start gap-3 cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-lg bg-stone-100 group-hover:bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                <Refrigerator className="w-4 h-4 text-stone-700 group-hover:text-amber-900" />
+              <div className="w-8 h-8 rounded-lg bg-stone-100 group-hover:bg-brand-100 flex items-center justify-center shrink-0 mt-0.5">
+                <Refrigerator className="w-4 h-4 text-stone-700 group-hover:text-brand-900" />
               </div>
               <div>
                 <h4 className="text-xs font-semibold text-stone-900">{preset.title}</h4>
@@ -214,9 +214,9 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
         {!selectedImage ? (
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-stone-300 hover:border-amber-600 rounded-xl p-8 sm:p-12 text-center bg-stone-50/50 hover:bg-amber-50/20 transition-all cursor-pointer space-y-3"
+            className="border-2 border-dashed border-stone-300 hover:border-brand-600 rounded-xl p-8 sm:p-12 text-center bg-stone-50/50 hover:bg-brand-50/20 transition-all cursor-pointer space-y-3"
           >
-            <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center mx-auto shadow-xs">
+            <div className="w-12 h-12 rounded-full bg-brand-100 text-brand-900 flex items-center justify-center mx-auto shadow-xs">
               <Camera className="w-6 h-6" />
             </div>
             <div>
@@ -259,16 +259,16 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
                 type="button"
                 disabled={isAnalyzing}
                 onClick={handleRunAnalysis}
-                className="px-5 py-2.5 bg-amber-900 hover:bg-amber-950 disabled:opacity-50 text-amber-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
+                className="px-5 py-2.5 bg-brand-900 hover:bg-brand-950 disabled:opacity-50 text-brand-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
               >
                 {isAnalyzing ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-amber-300" />
+                    <RefreshCw className="w-4 h-4 animate-spin text-brand-300" />
                     <span>Alfred is scrutinizing photo...</span>
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-4 h-4 text-amber-300" />
+                    <Sparkles className="w-4 h-4 text-brand-300" />
                     <span>Audit Provisions with Alfred</span>
                   </>
                 )}
@@ -280,12 +280,12 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
 
       {/* Analysis Results View */}
       {analysisSummary && (
-        <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-4 sm:p-5 shadow-xs flex items-start gap-3">
-          <div className="w-8 h-8 rounded-full bg-amber-900 text-amber-50 flex items-center justify-center font-serif text-xs font-bold shrink-0 mt-0.5">
+        <div className="bg-brand-50/70 border border-brand-200/90 rounded-2xl p-4 sm:p-5 shadow-xs flex items-start gap-3">
+          <div className="w-8 h-8 rounded-full bg-brand-900 text-brand-50 flex items-center justify-center font-serif text-xs font-bold shrink-0 mt-0.5">
             A
           </div>
           <div className="space-y-1">
-            <h4 className="text-xs font-serif font-semibold uppercase tracking-wider text-amber-900">
+            <h4 className="text-xs font-serif font-semibold uppercase tracking-wider text-brand-900">
               Alfred’s Observation
             </h4>
             <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
@@ -309,7 +309,7 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
               id="confirm-inventory-add-btn"
               type="button"
               onClick={handleCommitToInventory}
-              className="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+              className="px-4 py-2 bg-brand-800 hover:bg-brand-700 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
             >
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               <span>Incorporate into Inventory</span>
@@ -323,7 +323,7 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
                 onClick={() => handleToggleItemSelection(idx)}
                 className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-start justify-between gap-3 ${
                   item.isSelected
-                    ? 'border-amber-800/40 bg-amber-50/30'
+                    ? 'border-brand-800/40 bg-brand-50/30'
                     : 'border-stone-200 opacity-60 bg-stone-50'
                 }`}
               >
@@ -348,7 +348,7 @@ export const VisionFridgeScan: React.FC<VisionFridgeScanProps> = ({
                   type="checkbox"
                   checked={item.isSelected}
                   onChange={() => {}}
-                  className="rounded-md border-stone-300 text-amber-900 focus:ring-amber-800 w-4 h-4 mt-0.5 cursor-pointer"
+                  className="rounded-md border-stone-300 text-brand-900 focus:ring-brand-800 w-4 h-4 mt-0.5 cursor-pointer"
                 />
               </div>
             ))}
