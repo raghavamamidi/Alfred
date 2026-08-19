@@ -32,6 +32,46 @@ function getAI(): GoogleGenAI {
   return aiClient;
 }
 
+// Models to try in order. If the primary model is overloaded (503) or rate-limited (429),
+// Alfred quietly falls through to the next one instead of failing the request.
+const MODEL_FALLBACK_CHAIN = ["gemini-3.7-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite"];
+
+function isRetryableError(error: any): boolean {
+  const status = error?.status ?? error?.code;
+  const message = String(error?.message || "");
+  return (
+    status === 503 ||
+    status === 429 ||
+    status === "UNAVAILABLE" ||
+    status === "RESOURCE_EXHAUSTED" ||
+    /overloaded|unavailable|high demand|rate limit/i.test(message)
+  );
+}
+
+// Calls generateContent, retrying transient overload/rate-limit errors once per model
+// before cascading to the next model in MODEL_FALLBACK_CHAIN.
+async function generateWithFallback(ai: GoogleGenAI, params: any, models: string[] = MODEL_FALLBACK_CHAIN) {
+  let lastError: any;
+  for (const model of models) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        return await ai.models.generateContent({ ...params, model });
+      } catch (error: any) {
+        lastError = error;
+        if (!isRetryableError(error)) throw error;
+        const isLastAttemptForModel = attempt === 1;
+        console.warn(
+          `Gemini model "${model}" ${isLastAttemptForModel ? "failed, moving to next model" : "overloaded, retrying"}: ${error.message}`
+        );
+        if (!isLastAttemptForModel) {
+          await new Promise((r) => setTimeout(r, 600 + Math.random() * 500));
+        }
+      }
+    }
+  }
+  throw lastError;
+}
+
 const ALFRED_SYSTEM_PROMPT = `
 You are Alfred — a calm, attentive AI household steward inspired by the dependability of a trusted butler for Indian households.
 You assist Indian families with their kitchen inventory, meal planning, variety rotation, and smart grocery restocking (Blinkit, Zepto, Swiggy Instamart, BigBasket, Amazon Fresh).
@@ -74,8 +114,7 @@ ${messages.map((m: any) => `${m.role.toUpperCase()}: ${m.text}`).join("\n")}
 Respond as Alfred in character. If recommending actions (like suggesting a meal, restocking an item, or updating stock), keep it natural, composed, and helpful. You may also suggest 2-3 quick one-line follow-up chips at the end inside an optional JSON-like footer if helpful, or keep it purely in conversational prose.
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
+    const response = await generateWithFallback(ai, {
       contents: contextPrompt,
       config: {
         systemInstruction: ALFRED_SYSTEM_PROMPT,
@@ -121,8 +160,7 @@ Return a valid JSON array of identified items with the following schema:
 ]
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
+    const response = await generateWithFallback(ai, {
       contents: {
         parts: [
           {
@@ -187,8 +225,7 @@ Extract all purchased items and return a valid JSON array matching this schema:
 ]
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
+    const response = await generateWithFallback(ai, {
       contents: parsePrompt,
       config: {
         systemInstruction: "You are an Indian e-commerce order parser. Return strictly valid JSON array.",
@@ -257,8 +294,7 @@ Return a JSON array of 3 to 4 distinct meal recommendations with this schema:
 ]
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
+    const response = await generateWithFallback(ai, {
       contents: mealPrompt,
       config: {
         systemInstruction: ALFRED_SYSTEM_PROMPT + "\nYou are generating meal concept recommendations. Return only JSON array.",
@@ -322,8 +358,7 @@ Return a JSON object with this schema:
 }
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
+    const response = await generateWithFallback(ai, {
       contents: restockPrompt,
       config: {
         systemInstruction: ALFRED_SYSTEM_PROMPT + "\nYou are assembling a smart restock basket. Return only JSON object.",
