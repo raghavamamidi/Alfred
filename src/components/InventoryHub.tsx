@@ -120,11 +120,11 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
   return (
     <div className="max-w-7xl mx-auto space-y-6 pb-12">
       {/* Top Banner & Quick Controls */}
-      <div className="bg-[#faf8f5] border border-amber-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-[#f5f9fc] border border-brand-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-700" />
+              <span className="w-2 h-2 rounded-full bg-brand-700" />
               <h2 className="text-xl font-serif font-semibold text-stone-900">Household Inventory Ledger</h2>
             </div>
             <p className="text-sm text-stone-600 mt-1">
@@ -137,9 +137,9 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
               id="inv-scan-btn"
               type="button"
               onClick={onOpenScanModal}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-amber-900 text-amber-50 hover:bg-amber-950 transition-colors shadow-xs"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-brand-900 text-brand-50 hover:bg-brand-950 transition-colors shadow-xs"
             >
-              <Scan className="w-4 h-4 text-amber-300" />
+              <Scan className="w-4 h-4 text-brand-300" />
               <span>Scan Fridge Photo</span>
             </button>
             <button
@@ -155,7 +155,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
               id="inv-add-item-btn"
               type="button"
               onClick={() => setIsAddModalOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium bg-stone-900 text-white hover:bg-stone-800 transition-colors shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium bg-brand-800 text-white hover:bg-brand-700 transition-colors shadow-xs"
             >
               <Plus className="w-4 h-4" />
               <span>Add Item</span>
@@ -164,7 +164,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
         </div>
 
         {/* Status Metrics Ribbon */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-5 border-t border-amber-950/10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-5 border-t border-brand-950/10">
           <div className="bg-white/80 border border-stone-200/80 rounded-xl p-3.5">
             <div className="text-xs text-stone-500 font-medium">Total Provisions</div>
             <div className="text-2xl font-serif font-bold text-stone-900 mt-0.5">{totalCount} items</div>
@@ -178,13 +178,13 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
             <div className="text-2xl font-serif font-bold text-rose-900 mt-0.5">{criticalItems.length}</div>
             <div className="text-[11px] text-rose-600 mt-0.5">Requires immediate restock</div>
           </div>
-          <div className="bg-amber-50/70 border border-amber-200/80 rounded-xl p-3.5">
-            <div className="text-xs text-amber-800 font-medium flex items-center gap-1">
+          <div className="bg-brand-50/70 border border-brand-200/80 rounded-xl p-3.5">
+            <div className="text-xs text-brand-800 font-medium flex items-center gap-1">
               <Clock className="w-3.5 h-3.5" />
               <span>Depleting Soon</span>
             </div>
-            <div className="text-2xl font-serif font-bold text-amber-900 mt-0.5">{depletingItems.length}</div>
-            <div className="text-[11px] text-amber-700 mt-0.5">~1 to 2 days consumption left</div>
+            <div className="text-2xl font-serif font-bold text-brand-900 mt-0.5">{depletingItems.length}</div>
+            <div className="text-[11px] text-brand-700 mt-0.5">~1 to 2 days consumption left</div>
           </div>
           <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-3.5">
             <div className="text-xs text-emerald-800 font-medium flex items-center gap-1">
@@ -211,7 +211,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                 onClick={() => setSelectedLocation(tab.id)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
                   isSelected
-                    ? 'bg-stone-900 text-white'
+                    ? 'bg-brand-800 text-white'
                     : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
                 }`}
               >
@@ -231,7 +231,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
               placeholder="Search staples, spices, veggies, brands..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-1.5 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-amber-800"
+              className="w-full pl-9 pr-4 py-1.5 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-800"
             />
           </div>
 
@@ -249,7 +249,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                   onClick={() => setSelectedStatus(st.id)}
                   className={`text-xs px-2.5 py-1 rounded-md transition-colors ${
                     selectedStatus === st.id
-                      ? 'bg-amber-100 text-amber-950 font-semibold'
+                      ? 'bg-brand-100 text-brand-950 font-semibold'
                       : 'text-stone-600 hover:bg-stone-100'
                   }`}
                 >
@@ -274,7 +274,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                 isLow
                   ? 'border-rose-300 bg-rose-50/20'
                   : isDepleting
-                  ? 'border-amber-300 bg-amber-50/20'
+                  ? 'border-brand-300 bg-brand-50/20'
                   : 'border-stone-200'
               }`}
             >
@@ -296,7 +296,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                       isLow
                         ? 'bg-rose-100 text-rose-800 font-bold border border-rose-200'
                         : isDepleting
-                        ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                        ? 'bg-brand-100 text-brand-800 border border-brand-200'
                         : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     }`}
                   >
@@ -346,7 +346,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                     <button
                       type="button"
                       onClick={() => onAddDirectToRestock(item)}
-                      className="px-2 py-1 rounded-lg text-xs font-medium bg-amber-100 hover:bg-amber-200 text-amber-900 flex items-center gap-1 transition-colors cursor-pointer"
+                      className="px-2 py-1 rounded-lg text-xs font-medium bg-brand-100 hover:bg-brand-200 text-brand-900 flex items-center gap-1 transition-colors cursor-pointer"
                       title="Add to restocking proposal"
                     >
                       <ShoppingCart className="w-3 h-3" />
@@ -403,7 +403,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                   placeholder="e.g. Basmati Rice, Kissan Jam, Fresh Mint / Pudina"
                   value={newItemName}
                   onChange={(e) => setNewItemName(e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-amber-800"
+                  className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-800"
                 />
               </div>
 
@@ -515,7 +515,7 @@ export const InventoryHub: React.FC<InventoryHubProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg text-xs font-medium bg-stone-900 text-white hover:bg-stone-800"
+                  className="px-4 py-2 rounded-lg text-xs font-medium bg-brand-800 text-white hover:bg-brand-700"
                 >
                   Save Provision
                 </button>
