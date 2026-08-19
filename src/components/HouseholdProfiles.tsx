@@ -53,11 +53,11 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
   return (
     <div className="max-w-6xl mx-auto space-y-6 pb-12">
       {/* Header & Butler Policy */}
-      <div className="bg-[#faf8f5] border border-amber-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-[#f5f9fc] border border-brand-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-700" />
+              <span className="w-2 h-2 rounded-full bg-brand-700" />
               <h2 className="text-xl font-serif font-semibold text-stone-900">
                 Household Dietary Profiles & Preferences
               </h2>
@@ -71,7 +71,7 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
             id="add-member-btn"
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="px-4 py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
+            className="px-4 py-2.5 bg-brand-800 hover:bg-brand-700 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Add Household Member</span>
@@ -79,10 +79,10 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
         </div>
 
         {/* Strict Privacy & Medical Boundary Notice */}
-        <div className="mt-5 pt-4 border-t border-amber-950/10 bg-amber-50/60 border border-amber-200/80 rounded-xl p-3.5 flex items-start gap-3 text-xs text-stone-800">
-          <ShieldAlert className="w-4 h-4 text-amber-800 shrink-0 mt-0.5" />
+        <div className="mt-5 pt-4 border-t border-brand-950/10 bg-brand-50/60 border border-brand-200/80 rounded-xl p-3.5 flex items-start gap-3 text-xs text-stone-800">
+          <ShieldAlert className="w-4 h-4 text-brand-800 shrink-0 mt-0.5" />
           <div className="space-y-0.5">
-            <span className="font-semibold text-amber-950">Alfred's Privacy & Health Boundary:</span>
+            <span className="font-semibold text-brand-950">Alfred's Privacy & Health Boundary:</span>
             <p className="text-stone-700 font-sans">
               "We record solely culinary tastes, general age bands, and dietary boundaries (such as Jain, Vegetarian, or allergies). Exact age, weight, and biometric data are strictly never collected. Furthermore, as a butler, I am not qualified to provide medical or nutritional advice."
             </p>
@@ -100,7 +100,7 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
             <div className="space-y-3">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-stone-900 text-amber-100 flex items-center justify-center font-serif font-bold text-base shadow-xs">
+                  <div className="w-10 h-10 rounded-xl bg-stone-900 text-brand-100 flex items-center justify-center font-serif font-bold text-base shadow-xs">
                     {member.name[0]}
                   </div>
                   <div>
@@ -160,7 +160,7 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
                     {member.favoriteDishes.map((dish, dIdx) => (
                       <span
                         key={dIdx}
-                        className="text-[11px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200/60"
+                        className="text-[11px] px-2 py-0.5 rounded-md bg-brand-50 text-brand-900 border border-brand-200/60"
                       >
                         {dish}
                       </span>
@@ -205,7 +205,7 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
                   placeholder="e.g. Rohan, Priya, Dadi, Aarav"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-amber-800"
+                  className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-800"
                 />
               </div>
 
@@ -289,7 +289,7 @@ export const HouseholdProfiles: React.FC<HouseholdProfilesProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-xs font-medium bg-stone-900 text-white rounded-lg hover:bg-stone-800"
+                  className="px-4 py-2 text-xs font-medium bg-brand-800 text-white rounded-lg hover:bg-brand-700"
                 >
                   Save Profile
                 </button>
