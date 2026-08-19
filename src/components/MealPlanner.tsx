@@ -144,11 +144,11 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
   return (
     <div className="max-w-7xl mx-auto space-y-6 pb-12">
       {/* Header Banner */}
-      <div className="bg-[#faf8f5] border border-amber-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-[#f5f9fc] border border-brand-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-700" />
+              <span className="w-2 h-2 rounded-full bg-brand-700" />
               <h2 className="text-xl font-serif font-semibold text-stone-900">
                 Alfred’s Daily Meal Curation & Variety Engine
               </h2>
@@ -163,16 +163,16 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
             type="button"
             disabled={isLoading}
             onClick={handleFetchAiSuggestions}
-            className="px-4 py-2.5 bg-amber-900 hover:bg-amber-950 disabled:opacity-50 text-amber-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
+            className="px-4 py-2.5 bg-brand-900 hover:bg-brand-950 disabled:opacity-50 text-brand-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
           >
             {isLoading ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin text-amber-300" />
+                <RefreshCw className="w-4 h-4 animate-spin text-brand-300" />
                 <span>Alfred is consulting provisions...</span>
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 text-amber-300" />
+                <Sparkles className="w-4 h-4 text-brand-300" />
                 <span>Generate New Meal Ideas</span>
               </>
             )}
@@ -180,9 +180,9 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
         </div>
 
         {/* Variety Nudge Rule Indicator */}
-        <div className="mt-5 pt-4 border-t border-amber-950/10 flex flex-wrap items-center gap-3 text-xs text-stone-600">
+        <div className="mt-5 pt-4 border-t border-brand-950/10 flex flex-wrap items-center gap-3 text-xs text-stone-600">
           <div className="flex items-center gap-1.5 font-medium text-stone-800">
-            <ChefHat className="w-4 h-4 text-amber-800" />
+            <ChefHat className="w-4 h-4 text-brand-800" />
             <span>Recent Household Rotation:</span>
           </div>
           {recentMeals.map((m) => (
@@ -208,7 +208,7 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
                 onClick={() => setSelectedMealType(type)}
                 className={`text-xs px-3 py-1.5 rounded-lg capitalize font-medium transition-colors ${
                   selectedMealType === type
-                    ? 'bg-stone-900 text-white shadow-xs'
+                    ? 'bg-brand-800 text-white shadow-xs'
                     : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
                 }`}
               >
@@ -242,12 +242,12 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
             value={customRequest}
             onChange={(e) => setCustomRequest(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleFetchAiSuggestions()}
-            className="flex-1 px-3.5 py-1.5 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-amber-800"
+            className="flex-1 px-3.5 py-1.5 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-brand-800"
           />
           <button
             type="button"
             onClick={handleFetchAiSuggestions}
-            className="px-3.5 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-900 text-white text-xs font-medium cursor-pointer"
+            className="px-3.5 py-1.5 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-medium cursor-pointer"
           >
             Apply
           </button>
@@ -269,7 +269,7 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
                 {/* Header tags */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-200">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-brand-100 text-brand-900 border border-brand-200">
                       {sug.mealType}
                     </span>
                     <span className="text-xs text-stone-500 font-medium">📍 {sug.cuisine}</span>
@@ -293,8 +293,8 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
 
                 {/* Variety Nudge Explanation */}
                 {sug.varietyNudgeReason && (
-                  <div className="bg-amber-50/60 border border-amber-200/70 rounded-xl p-2.5 text-[11px] text-amber-950 flex items-start gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-800 shrink-0 mt-0.5" />
+                  <div className="bg-brand-50/60 border border-brand-200/70 rounded-xl p-2.5 text-[11px] text-brand-950 flex items-start gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-800 shrink-0 mt-0.5" />
                     <span>
                       <strong className="font-semibold">Alfred's Variety Insight:</strong> {sug.varietyNudgeReason}
                     </span>
@@ -322,13 +322,13 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
                   {hasMissing && (
                     <div className="text-stone-700 flex items-center justify-between">
                       <div>
-                        <span className="font-medium text-amber-800">⚠ Missing: </span>
+                        <span className="font-medium text-brand-800">⚠ Missing: </span>
                         <span className="text-stone-600">{sug.missingIngredients.join(', ')}</span>
                       </div>
                       <button
                         type="button"
                         onClick={() => onRequestMissingRestock(sug.missingIngredients)}
-                        className="text-[11px] font-semibold text-amber-900 underline hover:text-amber-950 cursor-pointer"
+                        className="text-[11px] font-semibold text-brand-900 underline hover:text-brand-950 cursor-pointer"
                       >
                         + Restock Missing
                       </button>
@@ -338,9 +338,9 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
 
                 {/* Expanded Butler Step-by-Step Notes (Only when asked) */}
                 {isExpanded && sug.quickSteps && (
-                  <div className="mt-3 pt-3 border-t border-amber-100 bg-stone-50/90 rounded-xl p-3 text-xs space-y-2 font-sans">
+                  <div className="mt-3 pt-3 border-t border-brand-100 bg-stone-50/90 rounded-xl p-3 text-xs space-y-2 font-sans">
                     <div className="font-serif font-semibold text-stone-900 flex items-center gap-1.5 text-xs">
-                      <BookOpen className="w-3.5 h-3.5 text-amber-800" />
+                      <BookOpen className="w-3.5 h-3.5 text-brand-800" />
                       <span>Alfred's Kitchen Preparation Guide:</span>
                     </div>
                     <ol className="space-y-1.5 text-stone-700 list-none pl-0">
@@ -369,7 +369,7 @@ export const MealPlanner: React.FC<MealPlannerProps> = ({
                   id={`cook-meal-${sug.id}`}
                   type="button"
                   onClick={() => onMarkMealCooked(sug.dishName, sug.mealType, sug.inStockIngredients)}
-                  className="px-3.5 py-1.5 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 bg-brand-800 hover:bg-brand-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Prepare Dish Today</span>
