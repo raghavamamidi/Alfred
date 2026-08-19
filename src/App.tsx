@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AlfredHeader } from './components/AlfredHeader';
+import { AlfredBottomNav } from './components/AlfredBottomNav';
 import { AlfredChat } from './components/AlfredChat';
 import { InventoryHub } from './components/InventoryHub';
 import { VisionFridgeScan } from './components/VisionFridgeScan';
@@ -279,8 +280,10 @@ export default function App() {
 
   const lowStockCount = inventory.filter((i) => i.status === 'critical' || i.status === 'depleting' || i.quantity <= 0).length;
 
+  const isChatTab = activeTab === 'chat';
+
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans flex flex-col selection:bg-amber-200 selection:text-amber-950">
+    <div className="h-dvh overflow-hidden bg-[#ffffff] text-stone-900 font-sans flex flex-col selection:bg-brand-200 selection:text-brand-950">
       {/* Butler Header */}
       <AlfredHeader
         activeTab={activeTab}
@@ -292,7 +295,13 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 pb-24 md:pb-5">
+      <main
+        className={
+          isChatTab
+            ? 'flex-1 min-h-0 overflow-hidden w-full max-w-7xl mx-auto flex flex-col sm:px-6 sm:py-5 lg:px-8'
+            : 'flex-1 min-h-0 overflow-y-auto w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5'
+        }
+      >
         {activeTab === 'chat' && (
           <AlfredChat
             messages={messages}
@@ -356,6 +365,9 @@ export default function App() {
         )}
       </main>
 
+      {/* Bottom Tab Bar — mobile only */}
+      <AlfredBottomNav activeTab={activeTab} setActiveTab={setActiveTab} lowStockCount={lowStockCount} />
+
       {/* Modals */}
       <OrderParserModal
         isOpen={isOrderModalOpen}
@@ -366,7 +378,7 @@ export default function App() {
       {/* Butler Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-20 right-4 left-4 sm:left-auto sm:bottom-5 sm:right-5 z-50 bg-stone-900 text-stone-100 text-xs sm:text-sm px-4 py-3 rounded-xl shadow-2xl border border-stone-700 flex items-center gap-2.5 animate-fade-in">
-          <div className="w-5 h-5 rounded-full bg-amber-800 text-amber-100 flex items-center justify-center font-serif text-[10px] font-bold">
+          <div className="w-5 h-5 rounded-full bg-brand-800 text-brand-100 flex items-center justify-center font-serif text-[10px] font-bold">
             A
           </div>
           <span>{toastMessage}</span>
@@ -374,7 +386,7 @@ export default function App() {
       )}
 
       {/* Subtle Butler Footer */}
-      <footer className="hidden md:block border-t border-amber-950/10 py-4 bg-[#faf8f5] text-center text-xs text-stone-500">
+      <footer className="hidden md:block border-t border-brand-950/10 py-4 bg-[#f5f9fc] text-center text-xs text-stone-500">
         <p className="font-serif">
           Alfred • Attentive AI Household Kitchen Steward for Indian Homes • Supporting Blinkit, Zepto, Swiggy Instamart & BigBasket
         </p>
