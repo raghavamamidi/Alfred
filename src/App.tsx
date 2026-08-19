@@ -292,7 +292,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 pb-24 md:pb-5">
         {activeTab === 'chat' && (
           <AlfredChat
             messages={messages}
@@ -365,7 +365,7 @@ export default function App() {
 
       {/* Butler Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 bg-stone-900 text-stone-100 text-xs sm:text-sm px-4 py-3 rounded-xl shadow-2xl border border-stone-700 flex items-center gap-2.5 animate-fade-in">
+        <div className="fixed bottom-20 right-4 left-4 sm:left-auto sm:bottom-5 sm:right-5 z-50 bg-stone-900 text-stone-100 text-xs sm:text-sm px-4 py-3 rounded-xl shadow-2xl border border-stone-700 flex items-center gap-2.5 animate-fade-in">
           <div className="w-5 h-5 rounded-full bg-amber-800 text-amber-100 flex items-center justify-center font-serif text-[10px] font-bold">
             A
           </div>
@@ -374,7 +374,7 @@ export default function App() {
       )}
 
       {/* Subtle Butler Footer */}
-      <footer className="border-t border-amber-950/10 py-4 bg-[#faf8f5] text-center text-xs text-stone-500">
+      <footer className="hidden md:block border-t border-amber-950/10 py-4 bg-[#faf8f5] text-center text-xs text-stone-500">
         <p className="font-serif">
           Alfred • Attentive AI Household Kitchen Steward for Indian Homes • Supporting Blinkit, Zepto, Swiggy Instamart & BigBasket
         </p>
