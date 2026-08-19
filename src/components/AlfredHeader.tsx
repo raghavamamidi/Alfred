@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Bot, Refrigerator, UtensilsCrossed, ShoppingBag, Users, Scan, Volume2, VolumeX } from 'lucide-react';
+import hulLogo from '../assets/hul-logo.jpg';
 
 interface AlfredHeaderProps {
   activeTab: string;
@@ -41,8 +42,8 @@ export const AlfredHeader: React.FC<AlfredHeaderProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
             <div className="relative shrink-0">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-brand-900 text-brand-50 flex items-center justify-center shadow-md font-serif font-bold text-lg sm:text-xl border border-brand-800/40">
-                A
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white flex items-center justify-center shadow-md border border-brand-800/40 p-1.5">
+                <img src={hulLogo} alt="HUL" className="w-full h-full object-contain" />
               </div>
               <span className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 bg-emerald-500 border-2 border-[#f5f9fc] rounded-full" title="Alfred is attentively on duty" />
             </div>
