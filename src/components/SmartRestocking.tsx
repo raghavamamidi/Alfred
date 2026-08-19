@@ -199,11 +199,11 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
   return (
     <div className="max-w-7xl mx-auto space-y-6 pb-12">
       {/* Steward Banner */}
-      <div className="bg-[#faf8f5] border border-amber-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-[#f5f9fc] border border-brand-950/10 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-700" />
+              <span className="w-2 h-2 rounded-full bg-brand-700" />
               <h2 className="text-xl font-serif font-semibold text-stone-900">
                 Alfred’s Smart Restocking Concierge
               </h2>
@@ -218,16 +218,16 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
             type="button"
             disabled={isLoading}
             onClick={() => generateSmartBasket(selectedPlatform)}
-            className="px-4 py-2.5 bg-amber-900 hover:bg-amber-950 disabled:opacity-50 text-amber-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
+            className="px-4 py-2.5 bg-brand-900 hover:bg-brand-950 disabled:opacity-50 text-brand-50 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs shrink-0 cursor-pointer"
           >
             {isLoading ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin text-amber-300" />
+                <RefreshCw className="w-4 h-4 animate-spin text-brand-300" />
                 <span>Alfred is evaluating stocks...</span>
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 text-amber-300" />
+                <Sparkles className="w-4 h-4 text-brand-300" />
                 <span>Re-Evaluate Restock Basket</span>
               </>
             )}
@@ -236,8 +236,8 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
 
         {/* Steward Note */}
         {restockBasket?.stewardNote && (
-          <div className="mt-4 pt-3 border-t border-amber-950/10 text-xs text-stone-800 flex items-start gap-2.5 bg-white/70 p-3 rounded-xl border border-stone-200/80">
-            <div className="w-6 h-6 rounded-full bg-amber-900 text-amber-100 flex items-center justify-center font-serif text-[10px] font-bold shrink-0 mt-0.5">
+          <div className="mt-4 pt-3 border-t border-brand-950/10 text-xs text-stone-800 flex items-start gap-2.5 bg-white/70 p-3 rounded-xl border border-stone-200/80">
+            <div className="w-6 h-6 rounded-full bg-brand-900 text-brand-100 flex items-center justify-center font-serif text-[10px] font-bold shrink-0 mt-0.5">
               A
             </div>
             <p className="leading-relaxed">
@@ -271,20 +271,20 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
                 }}
                 className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'border-stone-900 bg-stone-900 text-white shadow-xs'
+                    ? 'border-brand-800 bg-brand-800 text-white shadow-xs'
                     : 'border-stone-200 bg-stone-50/50 hover:bg-stone-100 text-stone-800'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-xs">{platform.name}</span>
-                    {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-amber-300" />}
+                    {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-brand-300" />}
                   </div>
                   <p className={`text-[10px] mt-0.5 line-clamp-1 ${isSelected ? 'text-stone-300' : 'text-stone-500'}`}>
                     {platform.tagline}
                   </p>
                 </div>
-                <div className={`text-[10px] font-medium mt-2 pt-1 border-t ${isSelected ? 'border-stone-700 text-amber-300' : 'border-stone-200 text-stone-600'}`}>
+                <div className={`text-[10px] font-medium mt-2 pt-1 border-t ${isSelected ? 'border-stone-700 text-brand-300' : 'border-stone-200 text-stone-600'}`}>
                   ⚡ {platform.deliveryTime}
                 </div>
               </button>
@@ -318,7 +318,7 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
               type="button"
               disabled={selectedCount === 0}
               onClick={() => setIsCheckoutModalOpen(true)}
-              className="px-4 py-2.5 bg-stone-900 hover:bg-stone-800 disabled:opacity-40 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
+              className="px-4 py-2.5 bg-brand-800 hover:bg-brand-700 disabled:opacity-40 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 transition-all shadow-xs cursor-pointer"
             >
               <span>Route to {selectedPlatform}</span>
               <ArrowRight className="w-4 h-4" />
@@ -336,7 +336,7 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
                 key={item.id}
                 className={`p-4 rounded-xl border transition-all ${
                   item.isSelected
-                    ? 'border-stone-200 bg-white hover:border-amber-400'
+                    ? 'border-stone-200 bg-white hover:border-brand-400'
                     : 'border-stone-100 bg-stone-50/70 opacity-60'
                 }`}
               >
@@ -458,7 +458,7 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-stone-200 space-y-5">
             <div className="flex items-center justify-between border-b border-stone-100 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-stone-900 text-amber-300 flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-stone-900 text-brand-300 flex items-center justify-center font-bold text-xs">
                   {selectedPlatform[0]}
                 </div>
                 <div>
@@ -477,8 +477,8 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
               </button>
             </div>
 
-            <div className="bg-amber-50/70 border border-amber-200 rounded-xl p-3.5 text-xs text-stone-800 space-y-1">
-              <p className="font-semibold text-amber-950">Alfred’s Transparent Notice:</p>
+            <div className="bg-brand-50/70 border border-brand-200 rounded-xl p-3.5 text-xs text-stone-800 space-y-1">
+              <p className="font-semibold text-brand-950">Alfred’s Transparent Notice:</p>
               <p>
                 "I will prepare these items for your {selectedPlatform} checkout. You will retain complete final control to confirm payment and delivery slot directly on their app."
               </p>
@@ -516,7 +516,7 @@ export const SmartRestocking: React.FC<SmartRestockingProps> = ({
                     setIsCheckoutModalOpen(false);
                     alert(`Restock items prepared! Alfred has copied your list to the clipboard and notified ${selectedPlatform}. You can confirm checkout on the ${selectedPlatform} app.`);
                   }}
-                  className="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs"
+                  className="px-4 py-2 bg-brand-800 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs"
                 >
                   <span>Proceed to {selectedPlatform} App</span>
                   <ExternalLink className="w-3.5 h-3.5" />
