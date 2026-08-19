@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  /* HUL brand blue, anchored at 700 = #035597 */
+  --color-brand-50: #eef6fb;
+  --color-brand-100: #d9ecf7;
+  --color-brand-200: #b3d8f0;
+  --color-brand-300: #7ebde3;
+  --color-brand-400: #4499cc;
+  --color-brand-500: #1f7ab3;
+  --color-brand-600: #0d629b;
+  --color-brand-700: #035597;
+  --color-brand-800: #02457c;
+  --color-brand-900: #033a66;
+  --color-brand-950: #02233d;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
